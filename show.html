@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/assets/images/favicon.ico">
+
+    <title>D'Kost | Cari Kost-kostan dan Apartement Terdekat</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/app.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">D'Kost</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </nav>
+
+    <div id="app">
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="bg" v-bind:style="headerImageStyle"></div>
+        <div class="jumbotron">
+            <div class="container">
+                <button class="view-photos btn btn-default btn-lg" style="background-color: transparent;" v-on:click="modalOpen = true"> <i class="fa fa-camera"></i></button>
+            </div>
+        </div>
+        
+        <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="heading">
+                    <h1>{{ title }}</h1>
+                    <p>{{ address }}</p>
+                </div>
+                <hr>
+        
+                <div class="about">
+                    <h3>Deskripsi Tempat</h3>
+                    <p v-bind:class="{ contracted: contracted }">{{ about }}</p>
+                    <button v-if="contracted" class="more" v-on:click="contracted = false">+ More</button>
+                </div>
+        
+                <div class="lists">
+                    <hr>
+                    <div class="amenities list">
+                        <div class="title"><strong>Fasilitas</strong></div>
+                        <div class="content">
+                            <div class="list-item" v-for="amenity in amenities">
+                                <i class="fa fa-lg" v-bind:class="amenity.icon"></i>
+                                <span>{{ amenity.title }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="prices list">
+                        <div class="title">
+                            <strong>Harga</strong>
+                        </div>
+                        <div class="content">
+                            <div class="list-item" v-for="price in prices">
+                                {{ price.title }}: <strong>{{ price.value }}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <hr>
+
+            <div id="modal" v-bind:class="{ show : modalOpen }">
+                <button v-on:click="modalOpen = false" class="modal-close">&times;</button>
+                <div class="modal-content">
+                    <img src="assets/images/interior.jpg" />
+                </div>
+            </div>
+        
+            <footer>
+                <p>&copy; 2018 D'Kost, Inc.</p>
+            </footer>
+        </div> <!-- /container -->
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/node_modules/jquery/dist/jquery.min.js"><\/script>')</script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/node_modules/vue/dist/vue.js"></script>
+    <script src="/assets/js/sample-data.js"></script>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

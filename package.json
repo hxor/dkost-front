@@ -1,0 +1,17 @@
+{
+  "name": "dkost",
+  "version": "1.0.0",
+  "description": "Cari kost-kostan atau apartement terdekat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "IDStack",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^1.12.4",
+    "vue": "^2.3.0"
+  }
+}
